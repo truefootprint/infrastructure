@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd tracker-backend
+
+bundle --without development test
