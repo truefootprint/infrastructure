@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo amazon-linux-extras install -y postgresql10
+
+sudo yum install -y postgresql-server postgresql-devel

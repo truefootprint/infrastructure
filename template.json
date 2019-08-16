@@ -12,8 +12,10 @@
     "scripts": [
       "scripts/update-packages",
       "scripts/install-dependencies",
+      "scripts/install-postgres",
       "scripts/install-rbenv",
-      "scripts/install-ruby"
+      "scripts/install-ruby",
+      "scripts/setup-postgres",
     ]
   }]
 }

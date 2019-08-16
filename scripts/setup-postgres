@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo /usr/bin/postgresql-setup --initdb
+
+echo "local all all trust" | sudo tee /var/lib/pgsql/data/pg_hba.conf
+
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
