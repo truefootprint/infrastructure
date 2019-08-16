@@ -22,6 +22,8 @@
       "scripts/clone-app",
       "scripts/bundle-gems",
       "scripts/generate-secret",
+      "scripts/create-database",
+      "scripts/migrate-database"
     ]
   }]
 }

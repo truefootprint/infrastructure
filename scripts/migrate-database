@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd tracker-backend
+
+RAILS_ENV=production bundle exec rake db:migrate
