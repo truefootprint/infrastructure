@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function latest_ruby {
+  rbenv install -l | grep -v '[a-z]' | tail -1
+}
+
+rbenv install $(latest_ruby)
+rbenv global $(latest_ruby)
+
+echo 'gem: --no-document' >> ~/.gemrc
+
+gem update --system

@@ -11,7 +11,8 @@
     "type": "shell",
     "scripts": [
       "scripts/update-packages",
-      "scripts/install-rbenv"
+      "scripts/install-rbenv",
+      "scripts/install-ruby"
     ]
   }]
 }
