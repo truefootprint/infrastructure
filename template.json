@@ -23,7 +23,9 @@
       "scripts/bundle-gems",
       "scripts/generate-secret",
       "scripts/create-database",
-      "scripts/migrate-database"
+      "scripts/migrate-database",
+
+      "scripts/setup-puma"
     ]
   }]
 }
