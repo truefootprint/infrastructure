@@ -1,0 +1,21 @@
+#!/bin/bash
+
+sudo yum install -y \
+  autoconf          \
+  automake          \
+  bison             \
+  bzip2             \
+  curl              \
+  gcc-c++           \
+  git-core          \
+  libffi-devel      \
+  libtool           \
+  libyaml-devel     \
+  make              \
+  openssl-devel     \
+  patch             \
+  readline          \
+  readline-devel    \
+  sqlite-devel      \
+  zlib              \
+  zlib-devel

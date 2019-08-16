@@ -11,6 +11,7 @@
     "type": "shell",
     "scripts": [
       "scripts/update-packages",
+      "scripts/install-dependencies",
       "scripts/install-rbenv",
       "scripts/install-ruby"
     ]
