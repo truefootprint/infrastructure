@@ -14,6 +14,7 @@ cat | sudo tee /etc/nginx/nginx.conf << 'EOF'
   http {
     include /etc/nginx/mime.types;
     access_log /var/log/nginx/access.log;
+    server_tokens off;
 
     upstream app {
       server unix:/home/ec2-user/tracker-backend/puma.sock;
