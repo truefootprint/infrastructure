@@ -10,7 +10,7 @@ cat | sudo tee /etc/systemd/system/puma.service << EOF
   User=ec2-user
   WorkingDirectory=/home/ec2-user/tracker-backend
   Environment=RAILS_ENV=production
-  ExecStart=/home/ec2-user/.rbenv/shims/puma
+  ExecStart=/home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
   Restart=always
 
   [Install]
