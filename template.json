@@ -12,28 +12,36 @@
       "filters": { "group-name": "open-ssh-and-http" }
     }
   }],
-  "provisioners": [{
-    "type": "shell",
-    "scripts": [
-      "scripts/copy-public-key",
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "secrets/google-sheets.json",
+      "destination": "/home/ec2-user/google-sheets.json"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/copy-public-key",
 
-      "scripts/update-packages",
-      "scripts/install-build-tools",
-      "scripts/install-postgres",
-      "scripts/install-nginx",
-      "scripts/install-rbenv",
-      "scripts/install-ruby",
+        "scripts/update-packages",
+        "scripts/install-build-tools",
+        "scripts/install-postgres",
+        "scripts/install-nginx",
+        "scripts/install-rbenv",
+        "scripts/install-ruby",
 
-      "scripts/setup-postgres",
+        "scripts/setup-postgres",
 
-      "scripts/clone-app",
-      "scripts/bundle-gems",
-      "scripts/generate-secret",
-      "scripts/create-database",
-      "scripts/migrate-database",
+        "scripts/clone-app",
+        "scripts/bundle-gems",
+        "scripts/generate-secret",
+        "scripts/create-database",
+        "scripts/migrate-database",
+        "scripts/run-importer",
 
-      "scripts/setup-puma",
-      "scripts/setup-nginx"
-    ]
-  }]
+        "scripts/setup-puma",
+        "scripts/setup-nginx"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mv google-sheets.json tracker-backend/config/
+
+cd tracker-backend
+
+RAILS_ENV=production bundle exec rails runner Importer.new.run
