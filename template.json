@@ -6,6 +6,8 @@
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
     "ami_name": "packer-example {{timestamp}}",
+    "ssh_agent_auth": true,
+    "ssh_keypair_name": "chris@truefootprint.com",
     "security_group_filter": {
       "filters": { "group-name": "open-ssh-and-http" }
     }
