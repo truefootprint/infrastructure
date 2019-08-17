@@ -10,8 +10,9 @@
   "provisioners": [{
     "type": "shell",
     "scripts": [
-      "scripts/update-packages",
+      "scripts/copy-public-key",
 
+      "scripts/update-packages",
       "scripts/install-dependencies",
       "scripts/install-postgres",
       "scripts/install-rbenv",
