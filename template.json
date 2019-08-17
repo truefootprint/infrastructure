@@ -20,6 +20,7 @@
       "scripts/update-packages",
       "scripts/install-dependencies",
       "scripts/install-postgres",
+      "scripts/install-nginx",
       "scripts/install-rbenv",
       "scripts/install-ruby",
 
@@ -31,7 +32,8 @@
       "scripts/create-database",
       "scripts/migrate-database",
 
-      "scripts/setup-puma"
+      "scripts/setup-puma",
+      "scripts/setup-nginx"
     ]
   }]
 }
