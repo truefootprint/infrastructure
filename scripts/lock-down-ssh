@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cat | sudo tee /etc/ssh/sshd_config << EOF
+  Protocol 2
+
+  PrintLastLog no
+  PasswordAuthentication no
+  ChallengeResponseAuthentication no
+  PermitRootLogin no
+
+  UsePAM yes
+EOF
+
+sudo service sshd restart

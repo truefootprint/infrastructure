@@ -22,6 +22,7 @@
       "type": "shell",
       "scripts": [
         "scripts/copy-public-key",
+        "scripts/lock-down-ssh",
 
         "scripts/update-packages",
         "scripts/install-build-tools",
