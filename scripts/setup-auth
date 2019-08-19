@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mv basic-auth.json tracker-backend/config/

@@ -19,6 +19,11 @@
       "destination": "/home/ec2-user/google-sheets.json"
     },
     {
+      "type": "file",
+      "source": "secrets/basic-auth.json",
+      "destination": "/home/ec2-user/basic-auth.json"
+    },
+    {
       "type": "shell",
       "scripts": [
         "scripts/copy-public-key",
@@ -34,6 +39,7 @@
         "scripts/setup-postgres",
 
         "scripts/clone-app",
+        "scripts/setup-auth",
         "scripts/bundle-gems",
         "scripts/generate-secret",
         "scripts/create-database",
