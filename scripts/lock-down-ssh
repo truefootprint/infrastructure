@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat | sudo tee /etc/ssh/sshd_config << EOF
+sudo tee /etc/ssh/sshd_config << EOF
   Protocol 2
 
   PrintLastLog no

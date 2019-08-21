@@ -1,0 +1,44 @@
+#!/bin/bash
+
+sudo tee /usr/local/bin/acme-prompt << 'EOF'
+  #!/bin/bash
+
+  echo > $(tty)
+  echo > $(tty)
+
+  subdomain=_acme-challenge.$CERTBOT_DOMAIN
+
+  expected=$CERTBOT_VALIDATION
+  actual=$(dig +short TXT $subdomain | tr -d '"')
+
+  echo "Please set the DNS TXT record for $subdomain:" > $(tty)
+  echo "Set it to $expected and wait for propagation." > $(tty)
+
+  while [ $actual != $expected ]; do
+    echo "  Waiting..." > $(tty)
+    sleep 10
+
+    actual=$(dig +short TXT $subdomain | tr -d '"' | tr -d '\r')
+  done
+
+  echo "Success. The TXT record for $subdomain is $actual" > $(tty)
+
+  echo > $(tty)
+  echo > $(tty)
+EOF
+
+sudo chmod a+x /usr/local/bin/acme-prompt
+
+sudo certbot certonly              \
+  --non-interactive                \
+  --agree-tos                      \
+  --preferred-challenges dns       \
+  --manual                         \
+  --manual-auth-hook acme-prompt   \
+  --manual-public-ip-logging-ok    \
+  --email chris@truefootprint.com  \
+  --domains tracker-backend.truefootprint.com
+
+sudo tee -a /etc/crontab << EOF
+  0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew
+EOF

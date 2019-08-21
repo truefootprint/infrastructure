@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo amazon-linux-extras install -y epel
+
+sudo yum install -y certbot python2-certbot-nginx

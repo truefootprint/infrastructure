@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat | sudo tee /etc/systemd/system/puma.service << EOF
+sudo tee /etc/systemd/system/puma.service << EOF
   [Unit]
   Description=Puma HTTP Server
   After=network.target

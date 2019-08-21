@@ -7,9 +7,10 @@
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
     "ssh_agent_auth": true,
+    "ssh_pty": true,
     "ssh_keypair_name": "chris@truefootprint.com",
     "security_group_filter": {
-      "filters": { "group-name": "open-ssh-and-http" }
+      "filters": { "group-name": "open-ssh-http-https" }
     }
   }],
   "provisioners": [
@@ -33,6 +34,7 @@
         "scripts/install-build-tools",
         "scripts/install-postgres",
         "scripts/install-nginx",
+        "scripts/install-certbot",
         "scripts/install-rbenv",
         "scripts/install-ruby",
 
@@ -47,6 +49,7 @@
         "scripts/run-importer",
 
         "scripts/setup-puma",
+        "scripts/setup-certbot",
         "scripts/setup-nginx"
       ]
     }
