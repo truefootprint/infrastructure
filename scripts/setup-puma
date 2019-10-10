@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo tee /etc/systemd/system/puma.service << EOF
+sudo tee /etc/systemd/system/tracker-backend.service << EOF
   [Unit]
   Description=Puma HTTP Server
   After=network.target
@@ -18,6 +18,26 @@ sudo tee /etc/systemd/system/puma.service << EOF
 EOF
 
 sudo systemctl daemon-reload
+sudo systemctl enable tracker-backend.service
+sudo systemctl start tracker-backend.service
 
-sudo systemctl enable puma.service
-sudo systemctl start puma.service
+sudo tee /etc/systemd/system/reporter-backend.service << EOF
+  [Unit]
+  Description=Puma HTTP Server
+  After=network.target
+
+  [Service]
+  Type=simple
+  User=ec2-user
+  WorkingDirectory=/home/ec2-user/reporter-backend
+  Environment=RAILS_ENV=production
+  ExecStart=/home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
+  Restart=always
+
+  [Install]
+  WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable reporter-backend.service
+sudo systemctl start reporter-backend.service

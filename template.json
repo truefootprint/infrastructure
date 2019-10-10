@@ -1,6 +1,6 @@
 {
   "builders": [{
-    "ami_name": "tracker-backend {{timestamp}}",
+    "ami_name": "backend {{timestamp}}",
     "type": "amazon-ebs",
     "region": "eu-west-2",
     "source_ami": "ami-0d8e27447ec2c8410",
@@ -21,8 +21,13 @@
     },
     {
       "type": "file",
-      "source": "secrets/basic-auth.json",
-      "destination": "/home/ec2-user/basic-auth.json"
+      "source": "secrets/tracker-basic-auth.json",
+      "destination": "/home/ec2-user/tracker-basic-auth.json"
+    },
+    {
+      "type": "file",
+      "source": "secrets/reporter-basic-auth.json",
+      "destination": "/home/ec2-user/reporter-basic-auth.json"
     },
     {
       "type": "shell",

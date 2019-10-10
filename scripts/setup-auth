@@ -1,3 +1,4 @@
 #!/bin/bash
 
-mv basic-auth.json tracker-backend/config/
+mv tracker-basic-auth.json ~/tracker-backend/config/basic-auth.json
+mv reporter-basic-auth.json ~/reporter-backend/config/basic-auth.json

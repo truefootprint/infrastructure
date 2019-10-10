@@ -1,5 +1,7 @@
 #!/bin/bash
 
-cd tracker-backend
+cd ~/tracker-backend
+RAILS_ENV=production bundle exec rake db:migrate
 
+cd ~/reporter-backend
 RAILS_ENV=production bundle exec rake db:migrate

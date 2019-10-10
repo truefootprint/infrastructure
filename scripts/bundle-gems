@@ -1,5 +1,7 @@
 #!/bin/bash
 
-cd tracker-backend
+cd ~/tracker-backend
+bundle --without development test
 
+cd ~/reporter-backend
 bundle --without development test

@@ -1,3 +1,4 @@
 #!/bin/bash
 
 git clone https://github.com/truefootprint/tracker-backend.git
+git clone https://github.com/truefootprint/reporter-backend.git
