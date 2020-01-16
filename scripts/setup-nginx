@@ -4,7 +4,7 @@ sudo tee /etc/nginx/nginx.conf << 'EOF'
   include /usr/share/nginx/modules/*.conf;
   user ec2-user;
   pid /run/nginx.pid;
-  error_log /var/log/nginx/error.log;
+  error_log /var/log/nginx/error.log warn;
   worker_processes auto;
 
   events {
