@@ -30,6 +30,16 @@
       "destination": "/home/ec2-user/reporter-basic-auth.json"
     },
     {
+      "type": "file",
+      "source": "secrets/key-listing.txt",
+      "destination": "/home/ec2-user/key-listing.txt"
+    },
+    {
+      "type": "file",
+      "source": "secrets/key-decoder.rb",
+      "destination": "/home/ec2-user/key-decoder.rb"
+    },
+    {
       "type": "shell",
       "scripts": [
         "scripts/copy-public-key",
@@ -49,6 +59,7 @@
         "scripts/setup-auth",
         "scripts/bundle-gems",
         "scripts/generate-secret",
+        "scripts/key-decoder",
         "scripts/create-database",
         "scripts/migrate-database",
         "scripts/run-importer",
