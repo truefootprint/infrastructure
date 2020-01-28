@@ -26,11 +26,6 @@
     },
     {
       "type": "file",
-      "source": "secrets/reporter-basic-auth.json",
-      "destination": "/home/ec2-user/reporter-basic-auth.json"
-    },
-    {
-      "type": "file",
       "source": "secrets/key-listing.txt",
       "destination": "/home/ec2-user/key-listing.txt"
     },
@@ -63,6 +58,7 @@
         "scripts/create-database",
         "scripts/migrate-database",
         "scripts/run-importer",
+        "scripts/run-seeds",
 
         "scripts/setup-puma",
         "scripts/setup-certbot",

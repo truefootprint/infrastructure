@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd reporter-backend
+
+RAILS_ENV=production bundle exec rake db:seed
