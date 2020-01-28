@@ -10,7 +10,7 @@ sudo tee /etc/systemd/system/tracker-backend.service << EOF
   User=ec2-user
   WorkingDirectory=/home/ec2-user/tracker-backend
   Environment=RAILS_ENV=production
-  ExecStart=/home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
+  ExecStart=/home/ec2-user/.rbenv/shims/bundle exec /home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
   Restart=always
 
   [Install]
@@ -31,7 +31,7 @@ sudo tee /etc/systemd/system/reporter-backend.service << EOF
   User=ec2-user
   WorkingDirectory=/home/ec2-user/reporter-backend
   Environment=RAILS_ENV=production
-  ExecStart=/home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
+  ExecStart=/home/ec2-user/.rbenv/shims/bundle exec /home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
   Restart=always
 
   [Install]
