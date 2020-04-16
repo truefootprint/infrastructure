@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mv key-listing.txt ~/reporter-backend/config/.DS_Store
-mv key-decoder.rb ~/reporter-backend/config/initializers/load_icons.rb
+mv key-listing.txt ~/field-backend/config/.DS_Store
+mv key-decoder.rb ~/field-backend/config/initializers/load_icons.rb

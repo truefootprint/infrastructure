@@ -55,22 +55,22 @@ sudo tee /etc/nginx/nginx.conf << 'EOF'
       }
     }
 
-    upstream reporter-backend {
-      server unix:/home/ec2-user/reporter-backend/puma.sock;
+    upstream field-backend {
+      server unix:/home/ec2-user/field-backend/puma.sock;
     }
 
     server {
       listen 80;
-      server_name reporter-backend.truefootprint.com;
+      server_name field-backend.truefootprint.com;
       return 301 https://$server_name$request_uri;
     }
 
     server {
       listen 443 ssl;
-      server_name reporter-backend.truefootprint.com;
+      server_name field-backend.truefootprint.com;
 
-      root /home/ec2-user/reporter-backend/public;
-      try_files $uri/index.html $uri @reporter-backend;
+      root /home/ec2-user/field-backend/public;
+      try_files $uri/index.html $uri @field-backend;
       error_page 500 502 503 504 /500.html;
       keepalive_timeout 10;
 
@@ -79,14 +79,14 @@ sudo tee /etc/nginx/nginx.conf << 'EOF'
       client_body_temp_path /tmp/nginx-file-uploads;
 
       ssl on;
-      ssl_certificate /etc/letsencrypt/live/reporter-backend.truefootprint.com/fullchain.pem;
-      ssl_certificate_key /etc/letsencrypt/live/reporter-backend.truefootprint.com/privkey.pem;
+      ssl_certificate /etc/letsencrypt/live/field-backend.truefootprint.com/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/field-backend.truefootprint.com/privkey.pem;
 
       gzip on;
       gzip_types application/json;
 
-      location @reporter-backend {
-        proxy_pass http://reporter-backend;
+      location @field-backend {
+        proxy_pass http://field-backend;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
         proxy_redirect off;

@@ -21,7 +21,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable tracker-backend.service
 sudo systemctl start tracker-backend.service
 
-sudo tee /etc/systemd/system/reporter-backend.service << EOF
+sudo tee /etc/systemd/system/field-backend.service << EOF
   [Unit]
   Description=Puma HTTP Server
   After=network.target
@@ -29,7 +29,7 @@ sudo tee /etc/systemd/system/reporter-backend.service << EOF
   [Service]
   Type=simple
   User=ec2-user
-  WorkingDirectory=/home/ec2-user/reporter-backend
+  WorkingDirectory=/home/ec2-user/field-backend
   Environment=RAILS_ENV=production
   ExecStart=/home/ec2-user/.rbenv/shims/bundle exec /home/ec2-user/.rbenv/shims/puma -b unix://puma.sock
   Restart=always
@@ -39,5 +39,5 @@ sudo tee /etc/systemd/system/reporter-backend.service << EOF
 EOF
 
 sudo systemctl daemon-reload
-sudo systemctl enable reporter-backend.service
-sudo systemctl start reporter-backend.service
+sudo systemctl enable field-backend.service
+sudo systemctl start field-backend.service

@@ -3,5 +3,5 @@
 cd ~/tracker-backend
 bundle --without development test
 
-cd ~/reporter-backend
+cd ~/field-backend
 bundle --without development test
